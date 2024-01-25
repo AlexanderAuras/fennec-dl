@@ -1,0 +1,2 @@
+class ConfigLoadingError(BaseException):
+    pass
