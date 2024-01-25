@@ -1,0 +1,149 @@
+[project]
+name = "fennec-dl"
+version = "0.0.1"
+description = "Basic framework for machine learning research"
+readme = "README.md"
+requires-python = ">= 3.8"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Alexander Auras", email = "33501357+AlexanderAuras@users.noreply.github.com" },
+]
+keywords = ["machine-learning", "research", "framework", "python", "pytorch"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Environment :: GPU :: NVIDIA CUDA",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+homepage = "https://github.com/AlexanderAuras/fennek_dl"
+repository = "https://github.com/AlexanderAuras/fennek_dl.git"
+changelog = "https://github.com/AlexanderAuras/fennek_dl/blob/master/CHANGELOG.md"
+#documentation = <URL>
+
+[project.optional-dependencies]
+dev = [
+    "pyright~=1.1.348",
+    "pytest~=7.4.4",
+    "pytest-cov~=4.1.9",
+    "pytest-xdist~=3.5.0",
+    "black~=23.12.1",
+    "isort~=5.13.2",
+]
+all = ["fennec-dl[dev]"]
+
+[build-system]
+requires = ["setuptools~=68.2.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = { file = "requirements.txt" }
+
+[tool.black]
+line-length = 99999
+include = "src/.*\\.py"
+
+[tool.isort]
+profile = "black"
+src_paths = ["src"]
+line_length = 99999
+lines_after_imports = 2
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/__pycache__", "**/.egg-info"]
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+analyzeUnannotatedFunctions = true
+enableTypeIgnoreComments = true
+strictDictionaryInference = true
+strictListInference = true
+strictParameterNoneValue = true
+strictSetInference = true
+reportDeprecated = "warning"
+reportAssertAlwaysTrue = "warning"
+reportCallInDefaultInitializer = "warning"
+reportConstantRedefinition = "error"
+reportDuplicateImport = "warning"
+reportFunctionMemberAccess = "none"
+reportGeneralTypeIssues = "error"
+reportImplicitStringConcatenation = "warning"
+reportImportCycles = "error"
+reportIncompatibleMethodOverride = "error"
+reportIncompatibleVariableOverride = "error"
+reportIncompleteStub = "error"
+reportInconsistentConstructor = "error"
+reportInvalidStringEscapeSequence = "error"
+reportInvalidStubStatement = "error"
+reportInvalidTypeVarUse = "error"
+reportMatchNotExhaustive = "error"
+reportMissingImports = "warning"
+reportMissingModuleSource = "information"
+reportMissingParameterType = "error"
+reportMissingSuperCall = "warning"
+reportMissingTypeArgument = "error"
+reportMissingTypeStubs = "information"
+reportOptionalCall = "error"
+reportOptionalContextManager = "error"
+reportOptionalIterable = "error"
+reportOptionalMemberAccess = "error"
+reportOptionalOperand = "error"
+reportOptionalSubscript = "error"
+reportOverlappingOverload = "error"
+reportPrivateImportUsage = "warning"
+reportPrivateUsage = "warning"
+reportPropertyTypeMismatch = "error"
+reportSelfClsParameterName = "error"
+reportShadowedImports = "warning"
+reportTypeCommentUsage = "error"
+reportTypedDictNotRequiredAccess = "error"
+reportUnboundVariable = "error"
+reportUndefinedVariable = "error"
+reportUninitializedInstanceVariable = "error"
+reportUnknownArgumentType = "information"
+reportUnknownLambdaType = "information"
+reportUnknownMemberType = "information"
+reportUnknownParameterType = "information"
+reportUnknownVariableType = "information"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryComparison = "warning"
+reportUnnecessaryContains = "warning"
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUnsupportedDunderAll = "error"
+reportUntypedBaseClass = "information"
+reportUntypedClassDecorator = "information"
+reportUntypedFunctionDecorator = "information"
+reportUntypedNamedTuple = "information"
+reportUnusedCallResult = "information"
+reportUnusedClass = "information"
+reportUnusedCoroutine = "information"
+reportUnusedExpression = "warning"
+reportUnusedFunction = "information"
+reportUnusedImport = "information"
+reportUnusedVariable = "warning"
+reportWildcardImportFromLibrary = "error"
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+addopts = "-vv -n auto --cov=fennec_dl --cov-report term --cov-report lcov:lcov.info --cov-fail-under 75"
+console_output_style = "count"
+junit_duration_report = "call"
+junit_logging = "all"
+junit_family = "xunit2"
+log_auto_indent = "On"
+log_cli = true
+log_cli_date_format = "%H:%M:%S"
+log_cli_format = "%(asctime)s [%(levelname)s]: %(message)s"
+log_cli_level = "INFO"
+log_date_format = "%H:%M:%S"
+log_format = "%(asctime)s [%(levelname)s]: %(message)s"
+log_level = "INFO"

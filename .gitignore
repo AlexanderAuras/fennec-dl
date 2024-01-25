@@ -1,0 +1,10 @@
+/.coverage
+/lcov.info
+
+/.pytest_cache/
+/.vscode/
+
+__pycache__/
+.ipynb_checkpoints/
+
+*.egg-info/
